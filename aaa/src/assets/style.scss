@@ -1,0 +1,122 @@
+html[data-theme="dark"] {
+	--Elementsbg: hsl(209, 23%, 22%);
+	--Mainbg: hsl(207, 26%, 17%);
+	--TextColor: white;
+}
+html[data-theme="light"] {
+	--Elementsbg: hsl(0, 0%, 97%);
+	--Mainbg: hsl(0, 0%, 100%);
+	--Textcolor: hsl(200, 15%, 8%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Nunito Sans";
+	box-sizing: border-box;
+}
+body {
+	color: var(--TextColor);
+	background-color: var(--Mainbg);
+}
+@mixin flex($displayType: flex, $alignItems: center, $justifyContent: center) {
+	display: $displayType;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+}
+header {
+	height: 20vh;
+	@include flex;
+	justify-content: space-between;
+	background-color: var(--Elementsbg);
+	padding: 0px 5% 0px 5%;
+	h1 {
+		color: var(--TextColor);
+	}
+	div {
+		height: 20%;
+		background: var(--Elementsbg);
+		border: none;
+		color: white;
+		font-weight: 600;
+		cursor: pointer;
+		display: flex;
+		color: var(--Textcolor);
+		align-items: center;
+		img {
+			width: 40px;
+			height: 40px;
+			margin-right: 10px;
+		}
+	}
+}
+main {
+	padding: 0px 5% 0px 5%;
+	.filterBox {
+		height: 10vh;
+		@include flex;
+		justify-content: space-between;
+		input {
+			background-color: var(--Elementsbg);
+			border: none;
+			padding: 15px;
+			width: clamp(150px, 25vw, 600px);
+			border-radius: 8px;
+			outline-color: white;
+			color: var(--Textcolor);
+			font-weight: 700;
+			&::before {
+				content: "";
+				width: 50px;
+				height: 50px;
+				background-color: red;
+			}
+		}
+		select {
+			border-radius: 8px;
+			width: clamp(200px, 10vw, 300px);
+			background-color: var(--Elementsbg);
+			border: none;
+			padding: 10px 20px 10px 20px;
+			color: var(--Textcolor);
+			outline-color: var(--Textcolor);
+			option:hover {
+				background-color: red;
+			}
+		}
+	}
+	.counteriesList {
+		display: flex;
+		min-height: 70vh;
+		gap: 5%;
+		flex-wrap: wrap;
+		row-gap: 5vh;
+		justify-content: space-between;
+		.countriesList__countryCard {
+			box-shadow: 0px 10px 20px 0px rgb(26, 25, 25);
+			display: flex;
+			width: 300px;
+			height: 340px;
+			flex-direction: column;
+			border-radius: 10px;
+			img {
+				border-radius: 10px 10px 0px 0px;
+				width: 100%;
+				height: 170px;
+			}
+			.countriesList__countryCard--details {
+				padding: 25px;
+				background-color: var(--Elementsbg);
+				height: 170px;
+				border-radius: 0px 0px 10px 10px;
+				:first-child {
+					font-weight: 700;
+					margin-bottom: 5%;
+				}
+				p {
+					font-weight: 300;
+				}
+			}
+		}
+	}
+}
